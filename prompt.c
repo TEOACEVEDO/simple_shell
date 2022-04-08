@@ -2,9 +2,9 @@
 
 int main(void)
 {
-	int count = 1;
+	int count = 1, i;
 	int first;
-	char *line = NULL;
+	char *line = NULL, *token, *str = " ";
 	size_t len = 0;
 
 	while (count != 5)
@@ -16,7 +16,7 @@ int main(void)
 			printf("Vuelva pronto!\n");
 			return (-1);
 		}
-		printf("%s", line);
+		i = tokener(line);
 		if (count == 3)
 		{
 			printf("Para salir presione Ctrl+D\n");
