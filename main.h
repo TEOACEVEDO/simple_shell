@@ -16,7 +16,7 @@
 /* PROTOTYPES */
 
 /*Aux functions*/
-int tokener(char *str);
+char **tokener(char *str);
 int fork_hijo(char *camino, char **arguments);
 
 #endif
