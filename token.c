@@ -3,10 +3,11 @@
 int tokener(char *str)
 {
 	char *delim = " ", *command;
-	char *argv[] = {"/usr/", NULL};
+	char *argv[] = {"/bin/ls", NULL};
 
 	command = strtok(str, delim);
-	if (execve(command, argv, NULL) == -1)
-		perror("Error exe");
+	printf("%s", command);
+	if (execve(argv[0], argv, NULL) == -1)
+		perror("Error");
 	return (1);
 }
