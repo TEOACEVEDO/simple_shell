@@ -4,7 +4,7 @@ int main(void)
 {
 	int count = 1, i;
 	int first;
-	char *line = NULL, *token, *str = " ";
+	char *line = NULL, **token;
 	size_t len = 0;
 
 	while (count != 5)
@@ -16,7 +16,13 @@ int main(void)
 			printf("Vuelva pronto!\n");
 			return (-1);
 		}
-		i = tokener(line);
+		token = tokener(line);
+		i = fork_hijo(token[0], token);
+		if (i == -1)
+		{
+			perror("error fork");
+			return (-1);
+		}
 		if (count == 3)
 		{
 			printf("Para salir presione Ctrl+D\n");

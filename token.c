@@ -2,7 +2,7 @@
 
 char **tokener(char *str)
 {
-	char *delim = " ", **command[];
+	char *delim = " ", **command;
 	int words = counter(str), i = 1;
 
 	command = malloc(sizeof(char) * (words + 1));
@@ -20,7 +20,7 @@ char **tokener(char *str)
 	}
 	while (i < words)
 	{
-		command = strtok(NULL, delim);
+		command[i] = strtok(NULL, delim);
 		i++;
 	}
 	return (command);

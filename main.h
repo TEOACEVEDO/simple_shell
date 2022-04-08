@@ -18,5 +18,6 @@
 /*Aux functions*/
 char **tokener(char *str);
 int fork_hijo(char *camino, char **arguments);
+int counter(char *string);
 
 #endif
