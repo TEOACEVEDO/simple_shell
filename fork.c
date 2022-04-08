@@ -1,5 +1,5 @@
 #include "main.c"
-int fork_hijo(char *camino, char **tokenizador)
+int fork_hijo(char *camino, char **arguments)
 {
 	pid_t pidC;
 
@@ -13,7 +13,7 @@ int fork_hijo(char *camino, char **tokenizador)
 
 	if (pidC == 0)
 	{
-		if (execve(camino, tokenizador) == -1)
+		if (execve(camino, arguments) == -1)
 		{
 			return (-1);
 		}
@@ -23,7 +23,7 @@ int fork_hijo(char *camino, char **tokenizador)
 	{
 		wait(NULL);
 		free(camino);
-		free(tokenizador);
+		free(arguments);
 	}
 
 	return (0);

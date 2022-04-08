@@ -17,6 +17,6 @@
 
 /*Aux functions*/
 int tokener(char *str);
-int fork_hijo(char *camino, char **tokenizador);
+int fork_hijo(char *camino, char **arguments);
 
 #endif
