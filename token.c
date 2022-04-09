@@ -1,8 +1,8 @@
 #include "main.h"
 
-char **tokener(char *str)
+char **tokener(char *str, char *delim)
 {
-	char *delim = " ", **command;
+	char **command;
 	int words = counter(str), i = 1;
 
 	command = malloc(sizeof(char) * (words + 1));

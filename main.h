@@ -13,11 +13,15 @@
 #include <signal.h>
 #include <stddef.h>
 #include <errno.h>
+
+/* Especial Macros */
+extern char **environ;
 /* PROTOTYPES */
 
 /*Aux functions*/
-char **tokener(char *str);
-int fork_hijo(char *camino, char **arguments);
+char **tokener(char *str, char *delim);
+int fork_hijo(char *camino, char **arguments, char **environ);
 int counter(char *string);
+void free_tokens(char **token);
 
 #endif
