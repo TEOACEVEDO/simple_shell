@@ -6,6 +6,7 @@ int main(void)
 	char *line = NULL, **token;
 	size_t len = 0;
 	struct stat st;
+	int (*f)();
 
 	while (1)
 	{
@@ -23,6 +24,18 @@ int main(void)
 			perror("Error token");
 			continue;
 		}
+		f = get_function(token[0]);
+		if (f != NULL)
+		{
+			free(token);
+			if (f() == 1)
+			{
+				free(line);
+				exit(0);
+			}
+			continue;
+		}
+		
 		if (stat(token[0], &st) == -1)
 		{
 			perror("Access fail");
