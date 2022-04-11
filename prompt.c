@@ -3,7 +3,7 @@
 int main(void)
 {
 	int i, first;
-	char *line = NULL, **token;
+	char *line = NULL, **token, *new_command;
 	size_t len = 0;
 	struct stat st;
 	int (*f)();
@@ -34,15 +34,18 @@ int main(void)
 				exit(0);
 			}
 			continue;
-		}
-		
+		}	
 		if (stat(token[0], &st) == -1)
 		{
-			perror("Access fail");
-			free(token);
-			continue;
+			new_command = search_alias(token);
+			if (!new_command)
+			{
+				free(new_command);
+				free(token);
+				continue;
+			}
 		}
-		if (token != NULL)
+		if (token != NULL && new_command != NULL)
 		{
 			i = fork_hijo(token[0], token, environ);
 			if (i == 1)

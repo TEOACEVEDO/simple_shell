@@ -5,7 +5,7 @@ char **tokener(char *str, char *delim)
 	char **command;
 	int words = counter(str), i = 1;
 
-	command = malloc(sizeof(char) * words);
+	command = malloc(sizeof(char) * (words + 1));
 	if (!command)
 	{
 		perror("Error malloc");

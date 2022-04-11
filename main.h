@@ -23,6 +23,7 @@ char **tokener(char *str, char *delim);
 int fork_hijo(char *camino, char **arguments, char **environ);
 int counter(char *string);
 void free_tokens(char **token);
+char *search_alias(char **token);
 
 /*Builtins*/
 int(*get_function(char *str))();
