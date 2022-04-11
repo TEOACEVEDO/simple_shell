@@ -2,10 +2,10 @@
 
 int main(void)
 {
-	int i;
-	int first;
+	int i, first;
 	char *line = NULL, **token;
 	size_t len = 0;
+	struct stat st;
 
 	while (1)
 	{
@@ -14,6 +14,7 @@ int main(void)
 		if (first == -1)
 		{
 			perror("Error getline\n");
+			free(line);
 			return (0);
 		}
 		token = tokener(line, " \n\t");
@@ -22,19 +23,21 @@ int main(void)
 			perror("Error token");
 			continue;
 		}
-		if (access(token[0], F_OK) == -1)
+		if (stat(token[0], &st) == -1)
 		{
 			perror("Access fail");
 			free(token);
 			continue;
 		}
-		i = fork_hijo(token[0], token, environ);
-		if (i == 1)
+		if (token != NULL)
 		{
-			perror("error fork");
-			continue;
+			i = fork_hijo(token[0], token, environ);
+			if (i == 1)
+			{
+				perror("error fork");
+				continue;
+			}
 		}
-		free(line);
 	}
 	return (0);
 }
