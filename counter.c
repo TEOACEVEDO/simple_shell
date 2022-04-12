@@ -1,8 +1,8 @@
 #include "main.h"
 int counter(char *string)
 {
-	int linia = 0, iter= 0;
-
+	int linia = 0;
+	unsigned int iter = 0;
 	while(*string)
 	{
 		if (*string == ' ')

@@ -1,6 +1,6 @@
 #include "main.h"
 
-int(*get_function(char *str))()
+int (*get_function(char *str))()
 {
 	Built_in bin[] = {
 		{"env", environment},

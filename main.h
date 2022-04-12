@@ -24,9 +24,12 @@ int fork_hijo(char *camino, char **arguments, char **environ);
 int counter(char *string);
 void free_tokens(char **token);
 char *search_alias(char **token);
+char *_strdup(const char *s);
+char *_strncmp(char *path, char *match, size_t n);
+char *espace(char *path, char *alias);
 
 /*Builtins*/
-int(*get_function(char *str))();
+int (*get_function(char *str))();
 int environment(void);
 int Exit_shell(void);
 

@@ -38,21 +38,23 @@ int main(void)
 		if (stat(token[0], &st) == -1)
 		{
 			new_command = search_alias(token);
-			if (!new_command)
+			if (new_command == NULL)
 			{
-				free(new_command);
 				free(token);
 				continue;
 			}
 		}
-		if (token != NULL && new_command != NULL)
+		else 
+			new_command = strdup(token[0]);
+		if (new_command)
 		{
-			i = fork_hijo(token[0], token, environ);
+			i = fork_hijo(new_command, token, environ);
 			if (i == 1)
 			{
 				perror("error fork");
 				continue;
 			}
+			free(new_command);
 		}
 	}
 	return (0);
