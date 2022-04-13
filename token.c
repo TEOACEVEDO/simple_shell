@@ -5,6 +5,8 @@ char **tokener(char *str, char *delim)
 	char **command = NULL;
 	int words = counter(str), i = 1;
 
+	if (command == NULL)
+		return (NULL);
 	command = malloc(sizeof(char *) * (words + 1));
 	if (!command)
 	{
@@ -14,11 +16,10 @@ char **tokener(char *str, char *delim)
 	command[0] = strtok(str, delim);
 	if (command[0] == NULL)
 	{
-		free(command[0]);
-		free(command);
+		free_tokens(command);
 		return (NULL);
 	}
-	while (i < words)
+	while (i < (words + 1))
 	{
 		command[i] = strtok(NULL, delim);
 		i++;

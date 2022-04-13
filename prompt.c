@@ -42,10 +42,12 @@ int main(void)
 		}	
 		if (stat(token[0], &st) == -1)
 		{
-			new_command = search_alias(token);
+			if (token != NULL)
+				new_command = search_alias(token);
 			if (new_command == NULL)
 			{
-				free_tokens(token);
+				perror("No alias\n");
+				free(new_command);
 				continue;
 			}
 		}
