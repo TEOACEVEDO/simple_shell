@@ -18,10 +18,13 @@ int main(void)
 			{
 				perror("./hsh");
 			}
+			write(STDOUT_FILENO, "\n", 1);
 			free(line);
 			return (0);
 		}
-		token = tokener(line, " \n\t");	
+		token = tokener(line, " \n\t");
+		if (token == NULL)
+			continue;	
 		f = get_function(token[0]);
 		if (f != NULL)
 		{
