@@ -2,10 +2,10 @@
 
 char **tokener(char *str, char *delim)
 {
-	char **command;
+	char **command = NULL;
 	int words = counter(str), i = 1;
 
-	command = malloc(sizeof(char) * 100000);
+	command = malloc(sizeof(char *) * (words + 1));
 	if (!command)
 	{
 		perror("Error malloc");

@@ -1,8 +1,8 @@
 #include "main.h"
 int fork_hijo(char *camino, char **arguments, char **environ)
 {
-	pid_t hijo;
-	int status;
+	pid_t hijo = 0;
+	int status = 0;
 
 	hijo = fork();
 	if (hijo == -1)
@@ -21,6 +21,7 @@ int fork_hijo(char *camino, char **arguments, char **environ)
 	{
 		wait(&status);
 		free(arguments);
+		free(camino);
 	}
 	return (0);
 }

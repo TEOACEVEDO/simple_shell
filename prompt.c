@@ -2,11 +2,11 @@
 
 int main(void)
 {
-	int i, first;
-	char *line = NULL, **token, *new_command;
+	int i = 0, first = 0, j = 0;
+	char *line = NULL, **token = NULL, *new_command = NULL;
 	size_t len = 0;
 	struct stat st;
-	int (*f)();
+	int (*f)() = 0;
 
 	while (1)
 	{
@@ -19,6 +19,11 @@ int main(void)
 			return (0);
 		}
 		token = tokener(line, " \n\t");
+		while (token[j])
+		{
+			printf("<%s\n", token[j]);
+			j++;
+		}
 		if (token == NULL)
 		{
 			perror("Error token");
@@ -40,7 +45,7 @@ int main(void)
 			new_command = search_alias(token);
 			if (new_command == NULL)
 			{
-				free(token);
+				free_tokens(token);
 				continue;
 			}
 		}
@@ -54,7 +59,6 @@ int main(void)
 				perror("error fork");
 				continue;
 			}
-			free(new_command);
 		}
 	}
 	return (0);
