@@ -38,9 +38,8 @@ char *search_alias(char **token)
 		free(new_rout);
 		h++;
 	}
-	printf("Libere el path\n");
+	
 	free(path_token);
-	printf("Libere el token\n");
 	free(path);
 	return (NULL);
 }

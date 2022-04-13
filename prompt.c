@@ -2,7 +2,7 @@
 
 int main(void)
 {
-	int i = 0, first = 0, j = 0;
+	int i = 0, first = 0;
 	char *line = NULL, **token = NULL, *new_command = NULL;
 	size_t len = 0;
 	struct stat st;
@@ -13,26 +13,15 @@ int main(void)
 		write(STDOUT_FILENO, "Shell$ ", 7);
 		first = getline(&line, &len, stdin);
 		if (first == -1)
-		{
-			perror("Error getline\n");
+		{	
+			if (errno == EINVAL || errno == ENOMEM)
+			{
+				perror("./hsh");
+			}
 			free(line);
 			return (0);
 		}
-		token = tokener(line, " \n\t");
-		if (token != NULL)
-		{
-			while (token[j])
-			{
-				printf("<%s\n", token[j]);
-				j++;
-			}
-			j = 0;
-		}
-		if (token == NULL)
-		{
-			perror("Error token");
-			continue;
-		}
+		token = tokener(line, " \n\t");	
 		f = get_function(token[0]);
 		if (f != NULL)
 		{
@@ -49,7 +38,7 @@ int main(void)
 			new_command = search_alias(token);
 			if (new_command == NULL)
 			{
-				perror("No alias\n");
+				perror("./hsh");
 				free(new_command);
 				free(token);
 				continue;
@@ -62,7 +51,7 @@ int main(void)
 			i = fork_hijo(new_command, token, environ);
 			if (i == 1)
 			{
-				perror("error fork");
+				perror("Error Fork");
 				continue;
 			}
 		}
