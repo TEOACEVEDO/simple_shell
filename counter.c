@@ -5,8 +5,7 @@ int counter(char *string)
 	unsigned int iter = 0;
 	while(*string)
 	{
-		if (*string == ' ')
-			
+		if (*string == ' ' || *string == '=' || *string == ':' || *string == '\n' || *string == '\t')
 			linia = 0;
 
 		else if (linia == 0)

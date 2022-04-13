@@ -19,10 +19,14 @@ int main(void)
 			return (0);
 		}
 		token = tokener(line, " \n\t");
-		while (token[j])
+		if (token != NULL)
 		{
-			printf("<%s\n", token[j]);
-			j++;
+			while (token[j])
+			{
+				printf("<%s\n", token[j]);
+				j++;
+			}
+			j = 0;
 		}
 		if (token == NULL)
 		{
@@ -42,12 +46,12 @@ int main(void)
 		}	
 		if (stat(token[0], &st) == -1)
 		{
-			if (token != NULL)
-				new_command = search_alias(token);
+			new_command = search_alias(token);
 			if (new_command == NULL)
 			{
 				perror("No alias\n");
 				free(new_command);
+				free(token);
 				continue;
 			}
 		}
