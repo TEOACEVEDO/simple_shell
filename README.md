@@ -1,4 +1,8 @@
+**Table of Contents**
 
+[TOCM]
+
+[TOC]
 # *Simple shell*
 
 - In this project we were assigned to make a functional Shell, with its basic commands.
@@ -8,7 +12,8 @@
 - Welcome to the Simple Shell project!! This program is a simple shell that can be compiled and launched from the command line.
 
 ### How to install?
-- go to your terminal, write: git clone https://github.com/TEOACEVEDO/simple_shell.git
+- go to your terminal, write:
+![](https://media.discordapp.net/attachments/961990447054606356/965687887666495498/unknown.png)
 
 ### How is it compiled?
 - gcc -Wall -Werror -Wextra -pedantic *.c -o hsh and you can execute the hsh program as follows  ./hsh
