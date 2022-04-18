@@ -10,7 +10,7 @@ char *search_alias(char **token)
 	{
 		if (_strncmp(environ[i], "PATH", 4) != NULL)
 		{
-			path = strdup(environ[i]);
+			path = _strdup(environ[i]);
 			break;
 		}
 		i++;
@@ -20,15 +20,15 @@ char *search_alias(char **token)
 	path_token = tokener(path, "=:");
 	while (path_token[h])
 	{
-		new_rout = malloc(sizeof(char) * (strlen(path_token[h]) + strlen(token[0]) + 2));
-		strcpy(new_rout, path_token[h]);
+		new_rout = malloc(sizeof(char) * (_strlen(path_token[h]) + _strlen(token[0]) + 2));
+		_strcpy(new_rout, path_token[h]);
 		if (!new_rout)
 		{
 			printf("Error rout\n");
 			return (NULL);
 		}
-		strcat(new_rout, "/");
-		strcat(new_rout, token[0]);
+		_strcat(new_rout, "/");
+		_strcat(new_rout, token[0]);
 		if (stat(new_rout, &st) == 0)
 		{
 			free(path);

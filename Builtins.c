@@ -10,7 +10,7 @@ int (*get_function(char *str))()
 
 	while (bin[l].comand != NULL)
 	{
-		if ((strcmp(str, bin[l].comand)) == 0)
+		if ((_strcmp(str, bin[l].comand)) == 0)
 		{
 			return (bin[l].f);
 		}
@@ -25,7 +25,7 @@ int environment(void)
 	
 	while (environ[v])
 	{
-		write(STDOUT_FILENO, environ[v], strlen(environ[v]));
+		write(STDOUT_FILENO, environ[v], _strlen(environ[v]));
 		write(STDOUT_FILENO, "\n", 1);
 		v++;
 	}

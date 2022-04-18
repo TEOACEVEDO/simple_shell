@@ -16,21 +16,13 @@ int prompt_interactivo(void)
 		{	
 			if (errno == EINVAL || errno == ENOMEM)
 				perror("./hsh");
-<<<<<<< HEAD
-=======
-			}
->>>>>>> 36be80a1922fd414cb4e3c2d20b376466e7a45a8
 			write(STDOUT_FILENO, "\n", 1);
 			free(line);
 			return (0);
 		}
 		token = tokener(line, " \n\t");
 		if (token == NULL)
-<<<<<<< HEAD
 			continue;
-=======
-			continue;	
->>>>>>> 36be80a1922fd414cb4e3c2d20b376466e7a45a8
 		f = get_function(token[0]);
 		if (f != NULL)
 		{
@@ -54,7 +46,7 @@ int prompt_interactivo(void)
 			}
 		}
 		else 
-			new_command = strdup(token[0]);
+			new_command = _strdup(token[0]);
 		if (new_command)
 		{
 			i = fork_hijo(new_command, token, environ);

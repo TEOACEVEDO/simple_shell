@@ -26,12 +26,9 @@ passwd	✅
 df	✅
 whatis	✅
 top	✅
-man	✅
 diff	✅
 sudo	✅
-locate	✅
 basename✅
-find	✅
 less	✅
 vim	✅
 grep	✅
