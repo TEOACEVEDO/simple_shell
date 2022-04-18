@@ -1,6 +1,4 @@
-[TOCM]
 
-[TOC]
 # *Simple shell*
 
 - In this project we were assigned to make a functional Shell, with its basic commands.
@@ -10,10 +8,10 @@
 - Welcome to the Simple Shell project!! This program is a simple shell that can be compiled and launched from the command line.
 
 ### How to install?
-- go to your terminal, write: https://github.com/TEOACEVEDO/simple_shell.git
+- go to your terminal, write: git clone https://github.com/TEOACEVEDO/simple_shell.git
 
 ### How is it compiled?
-- gcc -Wall -Werror -Wextra -pedantic *.c -o hsh and you can execute the hsh program as follows : ./hsh
+- gcc -Wall -Werror -Wextra -pedantic *.c -o hsh and you can execute the hsh program as follows  ./hsh
 
 ## Interactive mode
 - ls
@@ -61,11 +59,11 @@ mkdir	✅
 rmdir	✅
 exit	✅
 ```
-##FLOWCHART
+## FLOWCHART
 ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGOcMFQh_Iq5OGQ7x5boy2JMI8JlniDwj5-g&usqp=CAU)
 >flowchart
 
-##AUTHORS
+## AUTHORS
                     
 Mateo Acevedo  | Yon Roa
 ------------- | -------------
