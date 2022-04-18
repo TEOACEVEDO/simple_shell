@@ -8,7 +8,7 @@
 
 ### How to install?
 - go to your terminal, write:
-`https://github.com/TEOACEVEDO/simple_shell`
+`git clone https://github.com/TEOACEVEDO/simple_shell`
 
 ### How is it compiled?
 - gcc -Wall -Werror -Wextra -pedantic *.c -o hsh and you can execute the hsh program as follows  ./hsh
