@@ -11,14 +11,44 @@
 
 ## Builtin Commands
 ```built
-ls - list the files
-alias - create or list an alias
-cd - change directory
-env - list the current environment variables
-exit - exit the shell
-history - display the command history for the current shell session
-setenv - sets an environment variable
-unsetenv - unsets an environment variable
+ommand	Y/N
+ls	✅
+pwd	✅
+cd	❌
+man	✅
+hostname	✅
+clear	✅
+cp	✅
+which	✅
+whoami	✅
+uname	✅
+passwd	✅
+df	✅
+whatis	✅
+top	✅
+man	✅
+diff	✅
+sudo	✅
+locate	✅
+basename	✅
+find	✅
+less	✅
+vim	✅
+grep	✅
+find	✅
+touch	✅
+cat	✅
+tail	✅
+head	✅
+chmod	✅
+du	✅
+more	❌
+as	✅
+mv	✅
+rm	✅
+mkdir	✅
+rmdir	✅
+exit	✅
 ```
 ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGOcMFQh_Iq5OGQ7x5boy2JMI8JlniDwj5-g&usqp=CAU)
 >flowchart
