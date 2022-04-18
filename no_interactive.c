@@ -1,28 +1,25 @@
 #include "main.h"
 
-int prompt_interactivo(void)
+int prompt_no_interactivo(int argc, char **argv)
 {
-	int i = 0, first = 0;
-	char *line = NULL, **token = NULL, *new_command = NULL;
+	int i = 0, first = 0, (*f)() = 0;
+	char *line = NULL, **token = NULL, *new_command = NULL, *file = argv[argc - 1];
 	size_t len = 0;
 	struct stat st;
-	int (*f)() = 0;
 
 	while (1)
 	{
-		write(STDOUT_FILENO, "Shell$ ", 7);
 		first = getline(&line, &len, stdin);
 		if (first == -1)
-		{	
+		{
 			if (errno == EINVAL || errno == ENOMEM)
-				perror("./hsh");
-			write(STDOUT_FILENO, "\n", 1);
+				perror(file);
 			free(line);
 			return (0);
 		}
-		token = tokener(line, " \n\t");
+		token = tokener(line, " \n");
 		if (token == NULL)
-			continue;
+			continue;	
 		f = get_function(token[0]);
 		if (f != NULL)
 		{
@@ -39,13 +36,13 @@ int prompt_interactivo(void)
 			new_command = search_alias(token);
 			if (new_command == NULL)
 			{
-				perror("./hsh");
+				perror(file);
 				free(new_command);
 				free(token);
 				continue;
 			}
 		}
-		else 
+		else
 			new_command = strdup(token[0]);
 		if (new_command)
 		{

@@ -16,7 +16,10 @@
 
 /* Especial Macros */
 extern char **environ;
+
 /* PROTOTYPES */
+int prompt_interactivo(void);
+int prompt_no_interactivo(int argc, char **argv);
 
 /*Aux functions*/
 char **tokener(char *str, char *delim);
