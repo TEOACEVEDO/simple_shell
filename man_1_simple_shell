@@ -1,0 +1,62 @@
+.\" Manpage for Simple Shell.
+.TH "Simple Shell" 1 "20 April 2022" "1.0" "Simple Shell man page"
+
+.SH NAME
+hsh - Simple Shell
+
+.SH SYNOPSIS
+hsh (does not support arguments)
+
+.SH DESCRIPTION
+Welcome to the Simple Shell project! This program is a simple shell that can be compiled and launched from the command line within any number of Linux versions.
+
+.SH OVERVIEW
+The Simple Shell project is a major team project conducted by Mateo Acevedo and Yon Roa, students at Holberton School.
+
+.SH RETURN VALUE
+The shell returns the error code given by the last completed command followed by either ctrl-d or exit with no status code.
+
+.SH SYNTAX
+Shell$ <command> <flags or options> <argument 1> <argument 2> ...
+
+$ <command> | ./hsh
+.SS
+
+.SS
+EXAMPLE 1:
+Shell$ /bin/ls
+.SS
+EXAMPLE 2:
+Shell$ ls -l
+.SS
+EXAMPLE 3:
+Shell$ cat textfile
+.SS
+
+
+.SS
+EXAMPLE 4:
+$ echo "ls -l" | ./hsh
+
+.SH BUILTIN COMMANDS
+
+.SS env
+- list the current environment variable
+
+.SS exit
+- exit from shell
+
+.SH SEE ALSO
+DASH(1)
+
+.SH BUGS
+No known bugs
+
+.SH AUTHORS
+Mateo Acevedo
+- 4525@holbertonschool.com
+- https://github.com/TEOACEVEDO
+
+Yon Roa
+- 4540@holbertonschool.com
+- https://github.com/yonroa
