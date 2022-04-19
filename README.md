@@ -60,7 +60,7 @@ rmdir	✅
 exit	✅
 ```
 ## FLOWCHART
-![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGOcMFQh_Iq5OGQ7x5boy2JMI8JlniDwj5-g&usqp=CAU)
+![](https://cdn.discordapp.com/attachments/961990447054606356/966009255289307326/Untitled_Diagram.drawio.png)
 >flowchart
 
 ## AUTHORS
