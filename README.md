@@ -63,6 +63,9 @@ exit	✅
 ![](https://cdn.discordapp.com/attachments/961990447054606356/966009255289307326/Untitled_Diagram.drawio.png)
 >flowchart
 
+## BLOG - Explication "ls -l *.c in shell"
+[BLOG](https://symboliclinkandhardlink.blogspot.com/2022/04/simple-shell.html)
+
 ## AUTHORS
                     
 Mateo Acevedo  | Yon Roa
