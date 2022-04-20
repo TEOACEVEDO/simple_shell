@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * ver_access - Verify if the command exists
+ * @token: comman to be verified
+ * Return: A new command if exists
+ * NULL if is not
+ */
 char *ver_access(char **token)
 {
 	char *new_command = NULL;
