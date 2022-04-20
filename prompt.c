@@ -6,51 +6,25 @@
 
 int prompt_interactivo(void)
 {
-	int i = 0, first = 0;
+	int i = 0, first = 0, j = 0, f = 0;
 	char *line = NULL, **token = NULL, *new_command = NULL;
 	size_t len = 0;
-	struct stat st;
-	int (*f)() = 0;
 
 	while (1)
 	{
+		signal(2, handler);
 		write(STDOUT_FILENO, "Shell$ ", 7);
 		first = getline(&line, &len, stdin);
-		if (first == -1)
-		{
-			if (errno == EINVAL || errno == ENOMEM)
-				perror("./hsh");
-			write(STDOUT_FILENO, "\n", 1);
-			free(line);
+		j = display(first, line);
+		if (j == 0)
 			return (0);
-		}
 		token = tokener(line, " \n\t");
 		if (token == NULL)
 			continue;
-		f = get_function(token[0]);
-		if (f != NULL)
-		{
-			free(token);
-			if (f() == 1)
-			{
-				free(line);
-				exit(0);
-			}
+		f = searchb(token, line);
+		if (f == 1)
 			continue;
-		}
-		if (stat(token[0], &st) == -1)
-		{
-			new_command = search_alias(token);
-			if (new_command == NULL)
-			{
-				perror("./hsh");
-				free(new_command);
-				free(token);
-				continue;
-			}
-		}
-		else
-			new_command = _strdup(token[0]);
+		new_command = ver_access(token);
 		if (new_command)
 		{
 			i = fork_hijo(new_command, token, environ);

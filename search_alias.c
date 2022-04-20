@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * search_alias - search the alias inside of the path
  * @token: command
