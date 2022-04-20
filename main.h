@@ -20,6 +20,9 @@ extern char **environ;
 /* PROTOTYPES */
 int prompt_interactivo(void);
 int prompt_no_interactivo(int argc, char **argv);
+int display(int first, char *line);
+int searchb(char **token, char *line);
+char *ver_access(char **token);
 
 /*Aux functions*/
 char **tokener(char *str, char *delim);
@@ -34,6 +37,7 @@ int _strlen(char *s);
 char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 char *espace(char *path, char *alias);
+void handler(int signal);
 
 /*Builtins*/
 int (*get_function(char *str))();
