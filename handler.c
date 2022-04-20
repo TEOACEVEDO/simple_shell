@@ -1,5 +1,9 @@
 #include "main.h"
 
+/**
+ * handler - Continue with Ctrl + C
+ * @signal: Signal input
+ */
 void handler(int signal)
 {
 	(void)signal;
