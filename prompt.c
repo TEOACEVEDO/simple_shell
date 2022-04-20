@@ -1,4 +1,8 @@
 #include "main.h"
+/**
+ * prompt_interactivo - command line outside the shell
+ * Return: success always 0
+ */
 
 int prompt_interactivo(void)
 {
@@ -13,7 +17,7 @@ int prompt_interactivo(void)
 		write(STDOUT_FILENO, "Shell$ ", 7);
 		first = getline(&line, &len, stdin);
 		if (first == -1)
-		{	
+		{
 			if (errno == EINVAL || errno == ENOMEM)
 				perror("./hsh");
 			write(STDOUT_FILENO, "\n", 1);
@@ -33,7 +37,7 @@ int prompt_interactivo(void)
 				exit(0);
 			}
 			continue;
-		}	
+		}
 		if (stat(token[0], &st) == -1)
 		{
 			new_command = search_alias(token);
@@ -45,7 +49,7 @@ int prompt_interactivo(void)
 				continue;
 			}
 		}
-		else 
+		else
 			new_command = _strdup(token[0]);
 		if (new_command)
 		{

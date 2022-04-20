@@ -1,8 +1,12 @@
 #include "main.h"
-
+/**
+ * search_alias - search the alias inside of the path
+ * @token: command
+ * Return: the alias concatenated
+ */
 char *search_alias(char **token)
 {
-	int i = 0, h = 1;
+	int i = 0, h = 1, l1 = 0;
 	char *path = NULL, **path_token = NULL, *new_rout = NULL;
 	struct stat st;
 
@@ -18,9 +22,10 @@ char *search_alias(char **token)
 	if (!path)
 		return (NULL);
 	path_token = tokener(path, "=:");
+	l1 = _strlen(token[0]);
 	while (path_token[h])
 	{
-		new_rout = malloc(sizeof(char) * (_strlen(path_token[h]) + _strlen(token[0]) + 2));
+		new_rout = malloc(sizeof(char) * (_strlen(path_token[h]) + l1 + 2));
 		_strcpy(new_rout, path_token[h]);
 		if (!new_rout)
 		{
@@ -38,7 +43,6 @@ char *search_alias(char **token)
 		free(new_rout);
 		h++;
 	}
-	
 	free(path_token);
 	free(path);
 	return (NULL);

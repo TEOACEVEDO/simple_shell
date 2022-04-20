@@ -1,4 +1,12 @@
 #include "main.h"
+/**
+ * fork_hijo - function that creates a child process
+ * to execute the given command (camino).
+ * @camino: full path of the command to execute.
+ * @arguments: command options.
+ * @environ: user environment.
+ * Return: Success is 0.
+ */
 int fork_hijo(char *camino, char **arguments, char **environ)
 {
 	pid_t hijo = 0;

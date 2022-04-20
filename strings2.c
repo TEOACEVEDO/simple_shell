@@ -1,5 +1,10 @@
 #include "main.h"
-
+/**
+ * _strcat - concatenates 2 strings
+ * @dest: input value
+ * @src: input value
+ * Return: dest
+ */
 char *_strcat(char *dest, char *src)
 {
 	int i = 0;
@@ -17,7 +22,12 @@ char *_strcat(char *dest, char *src)
 	}
 	return (dest);
 }
-
+/**
+ * _strcmp - compare string values
+ * @s1: input value
+ * @s2: input value
+ * Return: s1[i] - s2[i]
+ */
 int _strcmp(char *s1, char *s2)
 {
 	int i = 0;

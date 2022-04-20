@@ -1,5 +1,11 @@
 #include "main.h"
-
+/**
+ * _strncmp - compare a string with the number of bits
+ * @path: first string
+ * @match: second string
+ * @n: number th bits to be compared
+ * Return: return the path if find a match
+ */
 char *_strncmp(char *path, char *match, size_t n)
 {
 	while (n && *path && (*path == *match))
@@ -17,7 +23,11 @@ char *_strncmp(char *path, char *match, size_t n)
 		return (NULL);
 	}
 }
-
+/**
+ * _strdup - returns a pointer to a newly allocated space
+ * @s: string to be duplicated
+ * Return: a pointer to new string
+ */
 char *_strdup(char *s)
 {
 	int i;
@@ -41,44 +51,23 @@ char *_strdup(char *s)
 	dup[i] = '\0';
 	return (dup);
 }
-
+/**
+ * _strlen - function to get the lenght of a string
+ * @s: string for be counted
+ * Return: length of the string
+ */
 int _strlen(char *s)
 {
 	if (!*s || !s)
 		return (0);
 	return (1 + _strlen(s + 1));
 }
-
-/* int _atoi(char *s)
-{
-	int i = 0;
-	int u = 0;
-	int cont = 0;
-	int number;
-	unsigned int sum = 0;
-
-	while (s[i] != '\0')
-		i++;
-	while (u <= i)
-	{
-		if (s[u] == '-')
-			cont++;
-		if (s[u] >= '0' && s[u] <= '9')
-		{
-			number = s[u] - '0';
-			if (cont % 2)
-				number = -number;
-			sum = (sum * 10) + number;
-			if (s[u + 1] < '0' || s[u + 1] > '9')
-				break;
-		}
-		u++;
-	}
-	if (sum == 0)
-		return (0);
-	return (sum);
-} */
-
+/**
+ * _strcpy - a function that copies the string pointed to by src
+ * @dest: copy to
+ * @src: copy from
+ * Return: string
+ */
 char *_strcpy(char *dest, char *src)
 {
 	int i = 0;

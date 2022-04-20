@@ -1,5 +1,10 @@
 #include "main.h"
-
+/**
+ * prompt_no_interactivo - command line outside the shell
+ * @argc: number of arguments passed non-interactive
+ * @argv: pointer with arguments passed non-interactive
+ * Return: success always 0
+ */
 int prompt_no_interactivo(int argc, char **argv)
 {
 	int i = 0, first = 0, (*f)() = 0;
@@ -19,7 +24,7 @@ int prompt_no_interactivo(int argc, char **argv)
 		}
 		token = tokener(line, " \n");
 		if (token == NULL)
-			continue;	
+			continue;
 		f = get_function(token[0]);
 		if (f != NULL)
 		{
@@ -30,7 +35,7 @@ int prompt_no_interactivo(int argc, char **argv)
 				exit(0);
 			}
 			continue;
-		}	
+		}
 		if (stat(token[0], &st) == -1)
 		{
 			new_command = search_alias(token);

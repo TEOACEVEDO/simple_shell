@@ -41,6 +41,12 @@ int environment(void);
 int Exit_shell(void);
 
 /*structures*/
+
+/**
+*struct built_in - builtin structures.
+*@comand: a char with a name of a file.
+*@f: a int that call.
+*/
 typedef struct built_in
 {
 	char *comand;

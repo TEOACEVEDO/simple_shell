@@ -1,5 +1,10 @@
 #include "main.h"
-
+/**
+ * tokener - separate the words
+ * @str: the string to be separate
+ * @delim: the word separator
+ * Return: the words separated
+ */
 char **tokener(char *str, char *delim)
 {
 	char **command = NULL;
