@@ -15,20 +15,20 @@ int prompt_interactivo(void)
 		signal(2, handler);
 		write(STDOUT_FILENO, "Shell$ ", 7);
 		first = getline(&line, &len, stdin);
-		j = display(first, line);
+		j = display(first, line, i);
 		if (j == 0)
 			return (0);
 		token = tokener(line, " \n\t");
 		if (token == NULL)
 			continue;
-		f = searchb(token, line);
+		f = searchb(token, line, i);
 		if (f == 1)
 			continue;
 		new_command = ver_access(token);
 		if (new_command)
 		{
 			i = fork_hijo(new_command, token, environ);
-			if (i == 1)
+			if (i == -1)
 			{
 				perror("Error Fork");
 				continue;

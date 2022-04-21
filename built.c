@@ -7,7 +7,7 @@
  * Return: 1 if is Built-in
  * 0 if is not
  */
-int searchb(char **token, char *line)
+int searchb(char **token, char *line, int i)
 {
 	int (*f)() = 0;
 
@@ -18,7 +18,7 @@ int searchb(char **token, char *line)
 		if (f() == 1)
 		{
 			free(line);
-			exit(EXIT_SUCCESS);
+			exit(i);
 		}
 		return (1);
 	}

@@ -20,8 +20,9 @@ extern char **environ;
 /* PROTOTYPES */
 int prompt_interactivo(void);
 int prompt_no_interactivo(int argc, char **argv);
-int display(int first, char *line);
-int searchb(char **token, char *line);
+int display(int first, char *line, int i);
+int display_n(int first, char *line, int i);
+int searchb(char **token, char *line, int i);
 char *ver_access(char **token);
 
 /*Aux functions*/
