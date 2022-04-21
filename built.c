@@ -18,7 +18,7 @@ int searchb(char **token, char *line)
 		if (f() == 1)
 		{
 			free(line);
-			exit(0);
+			exit(EXIT_SUCCESS);
 		}
 		return (1);
 	}
