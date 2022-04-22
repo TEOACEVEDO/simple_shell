@@ -5,6 +5,7 @@
  * @token: command to be verified
  * @line: line input
  * @i: Exit status
+ * @process: number of process
  * Return: 1 if is Built-in
  * 0 if is not
  */
