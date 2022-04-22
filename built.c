@@ -16,8 +16,10 @@ int searchb(char **token, char *line, int i, int process)
 	if (f != NULL)
 	{
 		if (f() == 0)
+		{
 			free(token);
-		if (f() == 1)
+		}
+		else if (f() == 1)
 		{
 			if (token[1] == NULL)
 			{
@@ -29,7 +31,7 @@ int searchb(char **token, char *line, int i, int process)
 			{
 				error_q(token, process);
 				free(token);
-				return (1);
+				return (2);
 			}
 			else
 			{
@@ -39,9 +41,9 @@ int searchb(char **token, char *line, int i, int process)
 				exit(num);
 			}
 		}
-		return (1);
+		return (0);
 	}
-	return (0);
+	return (1);
 }
 
 /**

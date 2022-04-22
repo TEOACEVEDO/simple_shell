@@ -21,9 +21,10 @@ int prompt_no_interactivo(int argc, char **argv)
 		display_n(first, line, i);
 		token = tokener(line, " \n\t");
 		if (token == NULL)
-		continue;
-		if (searchb(token, line, i, process) == 1)
-		continue;
+			continue;
+		i = searchb(token, line, i, process);
+		if (i == 0 || i == 2)
+			continue;
 		new_command = ver_access(token, process);
 		if (new_command)
 		{

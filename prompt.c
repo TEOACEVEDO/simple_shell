@@ -20,7 +20,8 @@ int prompt_interactivo(void)
 		token = tokener(line, " \n\t");
 		if (token == NULL)
 			continue;
-		if (searchb(token, line, i, process) == 1)
+		i = searchb(token, line, i, process);
+		if (i == 0 || i == 2)
 			continue;
 		new_command = ver_access(token, process);
 		if (new_command)
