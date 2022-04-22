@@ -6,7 +6,7 @@
 
 int prompt_interactivo(void)
 {
-	int i = 0, first = 0, j = 0, f = 0;
+	int i = 0, first = 0, process = 0;
 	char *line = NULL, **token = NULL, *new_command = NULL;
 	size_t len = 0;
 
@@ -15,24 +15,17 @@ int prompt_interactivo(void)
 		signal(2, handler);
 		write(STDOUT_FILENO, "Shell$ ", 7);
 		first = getline(&line, &len, stdin);
-		j = display(first, line, i);
-		if (j == 0)
-			return (0);
+		process++;
+		display(first, line, i);
 		token = tokener(line, " \n\t");
 		if (token == NULL)
 			continue;
-		f = searchb(token, line, i);
-		if (f == 1)
+		if (searchb(token, line, i) == 1)
 			continue;
-		new_command = ver_access(token);
+		new_command = ver_access(token, process);
 		if (new_command)
 		{
-			i = fork_hijo(new_command, token, environ);
-			if (i == -1)
-			{
-				perror("Error Fork");
-				continue;
-			}
+			i = accion(new_command, token, process);
 		}
 	}
 	return (0);

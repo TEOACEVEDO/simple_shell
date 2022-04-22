@@ -4,10 +4,9 @@
  * display - Verify the input
  * @first: Number of chars of the input
  * @line: Input
- * Return: 1 if is ok
- * 0 if is not
+ * @i: Exit status
  */
-int display(int first, char *line, int i)
+void display(int first, char *line, int i)
 {
 	if (first == -1)
 	{
@@ -17,17 +16,15 @@ int display(int first, char *line, int i)
 		free(line);
 		exit(i);
 	}
-	return (1);
 }
 
 /**
- * display_n - Verify the input
+ * display_n - Verify the input for non interactive
  * @first: Number of chars of the input
  * @line: Input
- * Return: 1 if is ok
- * 0 if is not
+ * @i: Exit estatus
  */
-int display_n(int first, char *line, int i)
+void display_n(int first, char *line, int i)
 {
 	if (first == -1)
 	{
@@ -36,5 +33,4 @@ int display_n(int first, char *line, int i)
 		free(line);
 		exit(i);
 	}
-	return (1);
 }

@@ -13,6 +13,7 @@
 #include <signal.h>
 #include <stddef.h>
 #include <errno.h>
+#include <ctype.h>
 
 /* Especial Macros */
 extern char **environ;
@@ -20,10 +21,10 @@ extern char **environ;
 /* PROTOTYPES */
 int prompt_interactivo(void);
 int prompt_no_interactivo(int argc, char **argv);
-int display(int first, char *line, int i);
-int display_n(int first, char *line, int i);
+void display(int first, char *line, int i);
+void display_n(int first, char *line, int i);
 int searchb(char **token, char *line, int i);
-char *ver_access(char **token);
+char *ver_access(char **token, int process);
 
 /*Aux functions*/
 char **tokener(char *str, char *delim);
@@ -37,8 +38,15 @@ char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
 char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
+char *_strrev(char *str);
+char *_itoa(int i, char *strout, int base);
+int _atoi(char *s);
+int _isdigit(char *c);
 char *espace(char *path, char *alias);
 void handler(int signal);
+int accion(char *path, char **arguments, int process);
+void error_p(char **tokens, int process);
+void error_m(char **tokens, int process);
 
 /*Builtins*/
 int (*get_function(char *str))();

@@ -1,4 +1,41 @@
 #include "main.h"
+
+/**
+ * accion - Verify if the command is success
+ * @path: command to be executed
+ * @arguments: arguments of the command
+ * @process: number of process of the program
+ */
+int accion(char *path, char **arguments, int process)
+{
+	int i = 0;
+
+	i = fork_hijo(path, arguments, environ);
+	if (i == -1)
+		error_p(arguments, process);
+	return (i);
+}
+
+/**
+ * error_p - Prints a error message for the command
+ * @tokens: command input
+ * @process: number of process of the program
+ */
+void error_p(char **tokens, int process)
+{
+	char *num_p = NULL;
+	char buffer[1024];
+
+	num_p = _itoa(process, buffer, 10);
+	write(1, "./hsh", 5);
+	write(1, ": ", 2);
+	write(1, num_p, _strlen(num_p));
+	write(1, ": ", 2);
+	write(1, tokens[0], _strlen(tokens[0]));
+	write(1, ": ", 2);
+	perror("");
+}
+
 /**
  * fork_hijo - function that creates a child process
  * to execute the given command (camino).
