@@ -28,7 +28,7 @@ int prompt_no_interactivo(int argc, char **argv)
 		new_command = ver_access(token, process);
 		if (new_command)
 		{
-			accion(new_command, token, process);
+			i = accion(new_command, token, process);
 		}
 	}
 	return (0);
