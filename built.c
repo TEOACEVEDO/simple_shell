@@ -10,7 +10,7 @@
  */
 int searchb(char **token, char *line, int i)
 {
-	int (*f)() = 0;
+	int (*f)() = 0, num = 0;
 
 	f = get_function(token[0]);
 	if (f != NULL)
@@ -33,10 +33,10 @@ int searchb(char **token, char *line, int i)
 			}
 			else
 			{
-				printf("opc 3 = %i", _atoi(token[1]));
+				num = _atoi(token[1]);
 				free(token);
 				free(line);
-				exit(_atoi(token[1]));
+				exit(num);
 			}
 		}
 		return (1);
