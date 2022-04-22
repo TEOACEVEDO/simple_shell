@@ -5,6 +5,7 @@
  * @path: command to be executed
  * @arguments: arguments of the command
  * @process: number of process of the program
+ * Return: The exit status
  */
 int accion(char *path, char **arguments, int process)
 {
