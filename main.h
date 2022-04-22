@@ -23,7 +23,7 @@ int prompt_interactivo(void);
 int prompt_no_interactivo(int argc, char **argv);
 void display(int first, char *line, int i);
 void display_n(int first, char *line, int i);
-int searchb(char **token, char *line, int i);
+int searchb(char **token, char *line, int i, int process);
 char *ver_access(char **token, int process);
 
 /*Aux functions*/
@@ -47,6 +47,7 @@ void handler(int signal);
 int accion(char *path, char **arguments, int process);
 void error_p(char **tokens, int process);
 void error_m(char **tokens, int process);
+void error_q(char **tokens, int process);
 
 /*Builtins*/
 int (*get_function(char *str))();

@@ -22,7 +22,7 @@ int prompt_no_interactivo(int argc, char **argv)
 		token = tokener(line, " \n\t");
 		if (token == NULL)
 		continue;
-		if (searchb(token, line, i) == 1)
+		if (searchb(token, line, i, process) == 1)
 		continue;
 		new_command = ver_access(token, process);
 		if (new_command)
